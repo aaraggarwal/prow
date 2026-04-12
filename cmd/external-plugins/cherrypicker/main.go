@@ -48,7 +48,7 @@ type options struct {
 	prowAssignments   bool
 	allowAll          bool
 	issueOnConflict   bool
-        addOriginalCommitID bool
+	addOriginalCommitID bool
 	labelPrefix       string
 }
 
@@ -73,7 +73,7 @@ func gatherOptions() options {
 	fs.BoolVar(&o.prowAssignments, "use-prow-assignments", true, "Use prow commands to assign cherrypicked PRs.")
 	fs.BoolVar(&o.allowAll, "allow-all", false, "Allow anybody to use automated cherrypicks by skipping GitHub organization membership checks.")
 	fs.BoolVar(&o.issueOnConflict, "create-issue-on-conflict", false, "Create a GitHub issue and assign it to the requestor on cherrypick conflict.")
-        fs.BoolVar(&o.addOriginalCommitID, "add-original-commit-id", true, "Add original commit ID to cherry-picked commit messages (similar to git cherry-pick -x).")
+	fs.BoolVar(&o.addOriginalCommitID, "add-original-commit-id", true, "Add original commit ID to cherry-picked commit messages (similar to git cherry-pick -x).")
 	fs.StringVar(&o.labelPrefix, "label-prefix", defaultLabelPrefix, "Set a custom label prefix.")
 	for _, group := range []flagutil.OptionGroup{&o.github, &o.instrumentationOptions} {
 		group.AddFlags(fs)
@@ -137,7 +137,7 @@ func main() {
 		prowAssignments: o.prowAssignments,
 		allowAll:        o.allowAll,
 		issueOnConflict: o.issueOnConflict,
-                addOriginalCommitID: o.addOriginalCommitID,
+		addOriginalCommitID: o.addOriginalCommitID,
 		labelPrefix:     o.labelPrefix,
 
 		bare:     &http.Client{},
