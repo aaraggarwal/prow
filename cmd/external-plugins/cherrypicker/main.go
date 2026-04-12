@@ -44,12 +44,12 @@ type options struct {
 	instrumentationOptions prowflagutil.InstrumentationOptions
 	logLevel               string
 
-	webhookSecretFile string
-	prowAssignments   bool
-	allowAll          bool
-	issueOnConflict   bool
+	webhookSecretFile   string
+	prowAssignments     bool
+	allowAll            bool
+	issueOnConflict     bool
 	addOriginalCommitID bool
-	labelPrefix       string
+	labelPrefix         string
 }
 
 func (o *options) Validate() error {
@@ -133,12 +133,12 @@ func main() {
 		ghc: githubClient,
 		log: log,
 
-		labels:          o.labels.Strings(),
-		prowAssignments: o.prowAssignments,
-		allowAll:        o.allowAll,
-		issueOnConflict: o.issueOnConflict,
+		labels:              o.labels.Strings(),
+		prowAssignments:     o.prowAssignments,
+		allowAll:            o.allowAll,
+		issueOnConflict:     o.issueOnConflict,
 		addOriginalCommitID: o.addOriginalCommitID,
-		labelPrefix:     o.labelPrefix,
+		labelPrefix:         o.labelPrefix,
 
 		bare:     &http.Client{},
 		patchURL: "https://patch-diff.githubusercontent.com",
